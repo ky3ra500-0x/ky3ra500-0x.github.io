@@ -4,11 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "homepage": "https://ky3ra500-0x.github.io",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^8.0.12"
   },
   "dependencies": {

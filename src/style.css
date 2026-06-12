@@ -69,8 +69,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/src/assets/bg-image-tree.jpg");
+  background-image:
+    linear-gradient(rgba(15, 20, 16, 0.8), rgba(5, 20, 16, 0.2)),
+    url("/src/assets/bg-image-tree.jpg");
   background-position: top left; /* alternatively, use center */
+  background-blend-mode: multiply; /* or overlay, screen, darken, lighten, etc. */
 }
 
 .welcome {
@@ -89,11 +92,12 @@ main {
   box-sizing: border-box;
   font-family: "Domine", serif;
   font-size: small;
+  overflow: hidden;
 }
 
 .welcome-title {
   font-family: "Playfair Display", serif;
-  font-size: 50px;
+  font-size: 3rem;
   font-weight: 200;
   margin: 0;
 }
@@ -104,7 +108,7 @@ main {
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.2);
+  background-color: rgba(2, 19, 0, 0.6);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -119,8 +123,9 @@ main {
   width: 100%;
   gap: 10px;
   background-color: rgba(26, 69, 19, 0.8);
-  height: calc(100% - 80vh);
-  color: #1e211e;
+  height: auto;
+  min-height: calc(100% - 80vh);
+  color: #0e0f0e;
 }
 
 .technology-title {
@@ -136,7 +141,7 @@ main {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  color: rgba(30, 33, 30, 0.8);
+  color: rgba(14, 15, 14, 0.8);
 }
 
 .marquee:hover .marquee-item {
@@ -163,7 +168,7 @@ main {
   }
 }
 
-section {
+#project-section {
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -173,14 +178,17 @@ section {
   color: #1e211e;
   padding: 20px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-.title {
+.project-title {
   font-family: "Playfair Display", serif;
+  color: #0e0f0e;
 }
 
-.description {
+.project-desc {
   font-family: "Domine", serif;
+  text-align: center;
 }
 
 .card-container {
@@ -329,4 +337,39 @@ h4 {
 .contact-items div a {
   color: #daddda;
   font-size: 1rem;
+}
+
+/* Media Queries */
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+  /* medium-sized devices */
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small devices (mobile) */
+@media (max-width: 576px) {
+  nav {
+    justify-content: center;
+  }
+
+  main {
+    background-image:
+      linear-gradient(rgba(15, 20, 16, 0.9), rgba(5, 20, 6, 0.4)),
+      url("/src/assets/bg-image-tree.jpg");
+  }
+
+  .logo {
+    display: none;
+  }
+
+  #project-section {
+    height: auto;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
 }
